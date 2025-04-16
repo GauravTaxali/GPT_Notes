@@ -28,5 +28,8 @@ iii. Restore corrupted data from the backup partition table.
 
 
 The official 5 parts of GPT are:
-1. Protective MBR: Used in the case when the partition is GPT, then the MBR sector 0 is filled with zeroes, the partition table has the bytes 
+1. Protective MBR: Used in the case when the partition is GPT, then the MBR sector 0 is filled with zeroes, the partition table has the bytes 02 00 EE FE FF 33 01 00 00 00 FF FF FF FF 00 00.
+Here FE means that it is a GPT formatted disk.
+The 55AA marks the end of the protective MBR.
 
+2. Primary GPT Header: This starts from the first sector of byte number 512. Right after the 55AA marker. It acts as a blueprint of the partitions on the disk. All the bytes in the GPT header have a specific meaning. The primary GPT Header is 92 bytes long in total.
